@@ -2,7 +2,7 @@
 
 
 Description:
-TaskManager is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
+BashTaskManager is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
 This multi-functional tool simplifies common computing tasks, such as calculations, file inspection, encryption, and 
 decryption, by providing a user-friendly interface.
 
