@@ -8,4 +8,4 @@ To complete the development of this BashTaskMaster script, we will need the foll
 6. loops
 7. case statement - for menu driven selection of tasks.
 
-And other commands necessary for the implementation of this script.
+And any other commands necessary for the implementation of this script.
