@@ -4,7 +4,7 @@
 Description:
 BashTaskMaster is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
 It is a handy utility for both novice and experienced users, offering a simple interface to streamline routine operations 
-while keeping your files secure. Whether you need to crunch numbers, inspect text files, or protect your data, TaskManager 
+while keeping your files secure. Whether you need to crunch numbers, inspect text files, or protect your data, BashTaskMaster 
 has you covered.
 
 
