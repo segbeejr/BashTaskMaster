@@ -1,0 +1,11 @@
+To complete the development of this BashTaskMaster script, we will need the following components:
+
+1. read - this will read inputs from users after they are prompted.
+2. bc - for basic calculations.
+3. awk - for manipulating and analyzing text files. 
+4. openssl - for file encryption and decryption.
+5. functions
+6. loops
+7. case statement - for menu driven selection of tasks.
+
+And any other commands necessary for the implementation of this script.
