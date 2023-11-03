@@ -1,5 +1,28 @@
 To complete the development of this BashTaskMaster script, we will need the following components:
 
+1) Perform caluculations
+2) Reading through a given file
+3) Deleting a given file
+4) Rename a given file
+5) Search through a given file
+6) Display the last column in a given file
+7) Display which grade can read contents in a given file
+8) Copies file to a remote server
+9) generates random number every 5seconds
+10) Display the number of lines, characters and words in a file, sort it numerically and redirect(append) it to a new file
+11) Check the length of a given file and redirect the output to the same file above, overwriting whatever that's there
+12) Create a nested directory and copy it to another directory
+13) Print a million numbers but it should display page by page
+14) Display recent commands
+15) Print only lines starting with a specified word in a file
+16) See process info
+17) Bash customization with cpu info
+18) Bash customization with neo info
+
+
+
+
+
 1. read - this will read inputs from users after they are prompted.
 2. bc - for basic calculations.
 3. awk - for manipulating and analyzing text files. 

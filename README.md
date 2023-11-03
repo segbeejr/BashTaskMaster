@@ -1,32 +1,20 @@
 # BashTaskMaster
 
+## Description
+A Bash application that makes possible the execution of multiple tasks, based on a user's selection. When the program is ran, a drop-down menu is displayed that shows the user multiple options of tasks they could perform and based on the choice or the selection of the user; a task is executed.
 
-Description:
-BashTaskMaster is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
-It is a handy utility for both novice and experienced users, offering a simple interface to streamline routine operations 
-while keeping your files secure. Whether you need to crunch numbers, inspect text files, or protect your data, BashTaskMaster 
-has you covered.
-
-
-Key Features:
-  **  Calculator: Perform basic mathematical operations like addition, subtraction, multiplication, and division. 
-
-  **  File Inspection: Analyze text files by counting characters, words, lines, and sentences. 
-      Additionally, you can search for specific elements like words, lines, characters, or sentences within the file.
-
-  **  File Encryption: Safeguard your sensitive data by encrypting files using the Advanced Encryption Standard (AES) with a 256-bit key. 
-      Users can specify a password to secure their files from unauthorized access.
-
-  **  File Decryption: Decrypt previously encrypted files, allowing you to regain access to your data when needed. 
-      You must provide the decryption password used during encryption.
+## Key Features
+1) Perform calculations
+2) Inspect a file
+3) Display file contents
+4) File navigation on a remote server
+5) Encrypt a file
+6) Decrypt a file
+More...
 
 
-
-How to Use:
-  **  Run the TaskManager script in your terminal.
-  
-  **  Choose a task from the provided menu by entering the corresponding number.
-  
-  **  Follow the prompts to input data, such as mathematical expressions, file paths, or passwords.
-  
-  **  The tool will perform the selected task and provide you with the results or progress updates.
+## Use
+1) Run the TaskManager script in your terminal.
+2) Choose a task from the provided menu by entering the corresponding number.
+3) When an option is selected, follow all other instructions to execute that task.
+4) When the task is executed, the result is displayed
