@@ -52,52 +52,70 @@ decrypt_file() {
   echo "File decrypted as ${file%.enc}"
 }
 
-# Function for file format conversion (e.g., txt to pdf)
-convert_file_format() {
-  read -p "Enter the path to the source file (Markdown): " source_file
-  read -p "Enter the path for the converted file (PDF): " converted_file
-
-  # Check if pandoc is installed
-  if ! command -v pandoc &>/dev/null; then
-    echo "Error: pandoc is not installed. Please install pandoc and try again."
-    return
-  fi
-
-  # Perform the conversion
-  pandoc "$source_file" -o "$converted_file"
-
-  echo "File converted."
-}
-
-# Function for date and time calculations
-date_time_calculations() {
-  read -p "Enter a date (YYYY-MM-DD): " input_date
-  read -p "Enter the number of days to add: " days_to_add
-
-  # Calculate the future date by adding days
-  calculated_date=$(date -d "$input_date + $days_to_add days" "+%Y-%m-%d")
-
-  echo "Calculated date: $calculated_date"
-}
-
-# Function to retrieve system information
-system_information() {
-  echo "System Information:"
-  uname -a  # Display system kernel version
-  df -h     # Display disk space usage
-}
-
-# Function for password management (To be implemented)
-password_management() {
-  # Add password management functionality here
-  echo "Password management feature not implemented."
-}
-
 # Function for file and directory management (To be implemented)
 file_directory_management() {
-  # Add file and directory management functionality here
-  echo "File and directory management feature not implemented."
+  while true; do
+    clear
+    echo "File and Directory Management Menu:"
+    echo "1. Create a new file"
+    echo "2. Create a new directory"
+    echo "3. Rename a file or directory"
+    echo "4. Move a file or directory"
+    echo "5. Delete a file or directory"
+    echo "6. List files and directories"
+    echo "7. Return to main menu"
+    read -p "Enter your choice: " choice
+
+    case $choice in
+      1)
+        read -p "Enter the name of the new file: " file_name
+        touch "$file_name"
+        echo "File '$file_name' created."
+        read -p "Press Enter to continue..."
+        ;;
+      2)
+        read -p "Enter the name of the new directory: " dir_name
+        mkdir "$dir_name"
+        echo "Directory '$dir_name' created."
+        read -p "Press Enter to continue..."
+        ;;
+      3)
+        read -p "Enter the current name of the file or directory: " current_name
+        read -p "Enter the new name: " new_name
+        mv "$current_name" "$new_name"
+        echo "Renamed '$current_name' to '$new_name'."
+        read -p "Press Enter to continue..."
+        ;;
+      4)
+        read -p "Enter the name of the file or directory to move: " source_name
+        read -p "Enter the destination directory: " destination_dir
+        mv "$source_name" "$destination_dir"
+        echo "Moved '$source_name' to '$destination_dir'."
+        read -p "Press Enter to continue..."
+        ;;
+      5)
+        read -p "Enter the name of the file or directory to delete: " delete_name
+        rm -r "$delete_name"
+        echo "Deleted '$delete_name'."
+        read -p "Press Enter to continue..."
+        ;;
+      6)
+        clear
+        echo "List of files and directories in the current directory:"
+        ls
+        read -p "Press Enter to continue..."
+        ;;
+      7)
+        break
+        ;;
+      *)
+        echo "Invalid choice"
+        read -p "Press Enter to continue..."
+        ;;
+    esac
+  done
 }
+
 
 # Function for file or directory removal
 remove_file_directory() {
@@ -115,49 +133,6 @@ remove_file_directory() {
   fi
 }
 
-# Function for file compression (ZIP format)
-compress_file() {
-  read -p "Enter the path to the file you want to compress: " source_file
-  read -p "Enter the path for the compressed file (ZIP format): " compressed_file
-
-  if [ -e "$source_file" ]; then
-    # Use the 'zip' command to create a ZIP archive of the source file
-    zip "$compressed_file" "$source_file"
-    echo "File compressed as $compressed_file"
-  else
-    echo "Source file not found: $source_file"
-  fi
-}
-
-# Function for file decompression (ZIP format)
-decompress_file() {
-  read -p "Enter the path to the compressed file (ZIP format): " compressed_file
-  read -p "Enter the path for the decompressed file or directory: " decompressed_file
-
-  if [ -e "$compressed_file" ]; then
-    # Use the 'unzip' command to decompress the ZIP archive
-    unzip -o "$compressed_file" -d "$decompressed_file"
-    echo "File decompressed as $decompressed_file"
-  else
-    echo "Compressed file not found: $compressed_file"
-  fi
-}
-
-# Function for file search and replace
-search_replace() {
-  read -p "Enter the path to the file you want to perform search and replace on: " file
-  read -p "Enter the text to search for: " search_text
-  read -p "Enter the text to replace with: " replace_text
-
-  if [ -f "$file" ]; then
-    # Use 'sed' to search and replace text in the file
-    sed -i "s/$search_text/$replace_text/g" "$file"
-    echo "Search and replace complete."
-  else
-    echo "File not found: $file"
-  fi
-}
-
 # Main menu
 while true; do
   echo "Task Menu:"
@@ -165,16 +140,9 @@ while true; do
   echo "2. Inspect files"
   echo "3. Encrypt files"
   echo "4. Decrypt files"
-  echo "5. Convert File Format"
-  echo "6. Date and Time Calculations"
-  echo "7. System Information"
-  echo "8. Password Management"
-  echo "9. File and Directory Management"
-  echo "10. Remove File/Directory"
-  echo "11. Compress File (ZIP)"
-  echo "12. Decompress File (ZIP)"
-  echo "13. Search and Replace"
-  echo "14. Exit"
+  echo "5. File and Directory Management"
+  echo "6. Remove File/Directory"
+  echo "7. Exit"
   read -p "Enter your choice: " task
 
   case $task in
@@ -182,16 +150,9 @@ while true; do
     2) inspect_file;;
     3) encrypt_file;;
     4) decrypt_file;;
-    5) convert_file_format;;
-    6) date_time_calculations;;
-    7) system_information;;
-    8) password_management;;
-    9) file_directory_management;;
-    10) remove_file_directory;;
-    11) compress_file;;
-    12) decompress_file;;
-    13) search_replace;;
-    14) echo "Goodbye!"; exit 0;;
+    5) file_directory_management;;
+    6) remove_file_directory;;
+    7) echo "Goodbye!"; exit 0;;
     *) echo "Invalid choice";;
   esac
 done
