@@ -2,9 +2,10 @@
 
 
 Description:
-BashTaskManager is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
-This multi-functional tool simplifies common computing tasks, such as calculations, file inspection, encryption, and 
-decryption, by providing a user-friendly interface.
+BashTaskMaster is a versatile command-line utility designed to assist users in performing a variety of tasks efficiently. 
+It is a handy utility for both novice and experienced users, offering a simple interface to streamline routine operations 
+while keeping your files secure. Whether you need to crunch numbers, inspect text files, or protect your data, BashTaskMaster 
+has you covered.
 
 
 Key Features:
@@ -17,4 +18,15 @@ Key Features:
       Users can specify a password to secure their files from unauthorized access.
 
   **  File Decryption: Decrypt previously encrypted files, allowing you to regain access to your data when needed. 
-      You must provide the decryption password used during encryption.**
+      You must provide the decryption password used during encryption.
+
+
+
+How to Use:
+  **  Run the TaskManager script in your terminal.
+  
+  **  Choose a task from the provided menu by entering the corresponding number.
+  
+  **  Follow the prompts to input data, such as mathematical expressions, file paths, or passwords.
+  
+  **  The tool will perform the selected task and provide you with the results or progress updates.
