@@ -225,7 +225,18 @@ function process() {
 }
 
 function stripoff_extension() {
-    
+    read -p "File name: " file_name
+    read -p "File extension: " file_extension
+    if [ -f "$file_name" ]
+    then
+        if [ "$file_extension" == .*]
+        then 
+            basename "$file" "$file_extension"
+        else
+            echo "Provide a proper file extension"
+        fi
+    else
+        echo "$file_name does not exist"
 }
 
 if [ "$select" == 1 ]
@@ -275,5 +286,8 @@ then
     process
 elif [ "$select" == 16 ]
 then
-
+    stripoff_extension
+elif [ "$select" == 17 ]
+then
+    
 fi
