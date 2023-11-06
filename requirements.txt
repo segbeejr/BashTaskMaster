@@ -8,9 +8,9 @@ To complete the development of this BashTaskMaster script, we will need the foll
 6) Display the last column in a given file
 7) Display which grade can read contents in a given file
 8) Copies file to a remote server
-9) generates random number every 5seconds
-10) Display the number of lines, characters and words in a file, sort it numerically and redirect(append) it to a new file
-11) Check the length of a given file and redirect the output to the same file above, overwriting whatever that's there
+9) generates random number every 3seconds
+10) Check the length of a file and redirect the output to a new file, overwriting whatever that's there
+11) Check the length of a given file 
 12) Create a nested directory and copy it to another directory
 13) Print a million numbers but it should display page by page
 14) Display recent commands
@@ -18,17 +18,6 @@ To complete the development of this BashTaskMaster script, we will need the foll
 16) See process info
 17) Bash customization with cpu info
 18) Bash customization with neo info
-
-
-
-
-
-1. read - this will read inputs from users after they are prompted.
-2. bc - for basic calculations.
-3. awk - for manipulating and analyzing text files. 
-4. openssl - for file encryption and decryption.
-5. functions
-6. loops
-7. case statement - for menu driven selection of tasks.
-
-And any other commands necessary for the implementation of this script.
+19) Delete a directory
+20) Strip off a file extension
+21) Exit program
