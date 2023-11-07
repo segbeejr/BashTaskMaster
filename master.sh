@@ -2,7 +2,7 @@
 
 echo "What would you like to do? "
 echo
-echo -e "1. Perform calculations\n2. Read a file\n3. Delete a file\n4. Rename a file\n5. Search through a file for specific words\n6. Display the last column in a file using awk\n7. Display which grade can read the contents in a given file\n8. Copy file to a remote server\n9. Generate random number every 3 seconds\n10. Display any given column in a file\n11. Check the length of a file\n12. Create a nested directory\n13.Print a million numbers but it should display page by page\n14. Print only lines starting with specified words in a file\n15. See processes\n16. Strip off a file extension\n17. Delete a directory\n18. Create the three basic files in a directory\n20. Show ssh key\n21. Customize with cpufetch\n22. customize with neofetch\n23. Exit program"
+echo -e "1. Perform calculations\n2. Read a file\n3. Delete a file\n4. Rename a file\n5. Search through a file for specific words\n6. Display the last column in a file using awk\n7. Display which grade can read the contents in a given file\n8. Copy file to a remote server\n9. Generate random number every 3 seconds\n10. Display any given column in a file\n11. Check the length of a file\n12. Create a nested directory\n13.Print a million numbers but it should display page by page\n14. Print lines with specified words in a file\n15. See processes\n16. Strip off a file extension\n17. Delete a directory\n18. Create the three basic files in a directory\n19. Show ssh key\n20. Customize with cpufetch\n21. customize with neofetch\n22. Exit program"
 
 read -p "Select a task to execute: " select
 
@@ -84,7 +84,7 @@ function rename_file() {
 function search_file() {
     read -p "File name: " file_name
     read -p "Word you want to search for: " word
-    if [ -f "$file" ]
+    if [ -f "$file_name" ]
     then    
         grep -n -w -i -v "$word" "$file_name"
     else
@@ -137,9 +137,10 @@ function remote_server() {
     then
         if [ -n "$file_name" ]
         then
-            scp "$file_name" "$remote"
+            scp "$file_name" "$remote":/home/tracy
         else
             echo "Provide a proper remote server"
+        fi
     else
         echo "$file_name does not exist"
     fi
@@ -159,7 +160,7 @@ function display_column() {
     read -p "Desired column number: " column
     if [ -f "$file" ]
     then
-        awk -v col="$column" '{print $column}' "$file"
+        awk -v col="$column" '{print $col}' "$file"
     else
         echo "$file doesn't exist"
     fi
@@ -167,9 +168,10 @@ function display_column() {
 
 function file_length() {
     read -p "File name: " file_name
-    if [ -f "$file" ]
+    if [ -f "$file_name" ]
     then
-        du -b "$file_name" | cut -f1; echo "File size is: $file_name"
+        du -b "$file_name" | cut -f1
+        echo "File size is: $file_name"
     else
         echo "$file_name doesn't exist"
     fi
@@ -203,10 +205,10 @@ function nest_directory() {
 }
 
 function print_numbers() {
-    for i in {0..2000}
+    for i in {0..20000}
     do
-        echo $i | less
-    done
+        echo $i
+    done | less
 }
 
 function print_lines() {
@@ -214,7 +216,7 @@ function print_lines() {
     read -p "Word you want to search for: " word
     if [ -f "$file" ]
     then
-        awk '/^"$word" {print $0}' "$file"
+        awk -v word="$word" '$0 ~ word {print $0}' "$file"
     else
         echo "$file doesn't exist"
     fi
@@ -226,22 +228,24 @@ function process() {
 
 function stripoff_extension() {
     read -p "File name: " file_name
-    read -p "File extension: " file_extension
+    
     if [ -f "$file_name" ]
     then
-        if [ "$file_extension" == .*]
+        if [[ "$file_name" == *.* ]]
         then 
-            basename "$file" "$file_extension"
+            stripped_file=$(basename "$file_name" .*)
+            echo "The stripped file is now: $stripped_file"
         else
-            echo "Provide a proper file extension"
+            echo "$file_name has no extension"
         fi
     else
         echo "$file_name does not exist"
+    fi
 }
 
 function delete_dir() {
     read -p "Directory name: " dir_name
-    if [ -d "/home/$dir_name" ]
+    if [ -d "$dir_name" ]
     then
         rm -r "$dir_name"
     else
@@ -328,7 +332,7 @@ then
     create_files_in_dir
 elif [ "$select" == 19 ]
 then
-    generate_ssh
+    show_ssh
 elif [ "$select" == 20 ]
 then
     customize_cpu
@@ -341,3 +345,4 @@ then
 else
     echo "Invalid option"
 fi
+
