@@ -2,7 +2,7 @@
 
 echo "What would you like to do? "
 echo
-echo -e "1. Perform calculations\n2. Read a file\n3. Delete a file\n4. Rename a file\n5. Search through a file for specific words\n6. Display the last column in a file using awk\n7. Display which grade can read the contents in a given file\n8. Copy file to a remote server\n9. Generate random number every 3 seconds\n10. Display any given column in a file\n11. Check the length of a file\n12. Create a nested directory\n13.Print a million numbers but it should display page by page\n14. Print only lines starting with specified words in a file\n15. See processes\n16. Strip off a file extension\n17. Delete a directory\n18. Create the three basic files in a directory\n20. Generate ssh key\n21. Exit program"
+echo -e "1. Perform calculations\n2. Read a file\n3. Delete a file\n4. Rename a file\n5. Search through a file for specific words\n6. Display the last column in a file using awk\n7. Display which grade can read the contents in a given file\n8. Copy file to a remote server\n9. Generate random number every 3 seconds\n10. Display any given column in a file\n11. Check the length of a file\n12. Create a nested directory\n13.Print a million numbers but it should display page by page\n14. Print only lines starting with specified words in a file\n15. See processes\n16. Strip off a file extension\n17. Delete a directory\n18. Create the three basic files in a directory\n20. Show ssh key\n21. Customize with cpufetch\n22. customize with neofetch\n23. Exit program"
 
 read -p "Select a task to execute: " select
 
@@ -239,6 +239,39 @@ function stripoff_extension() {
         echo "$file_name does not exist"
 }
 
+function delete_dir() {
+    read -p "Directory name: " dir_name
+    if [ -d "/home/$dir_name" ]
+    then
+        rm -r "$dir_name"
+    else
+        echo "$dir_name doesn't exist"
+    fi
+}
+
+function create_files_in_dir() {
+    read -p "What do you want to call your directory? " dir_name
+	mkdir "$dir_name"
+    touch index.html style.css app.js
+	mv index.html style.css app.js "$dir_name"
+}
+
+function show_ssh() {
+    cat ~/.ssh/id_rsa.pub
+}
+
+function customize_cpu() {
+    cpufetch
+}
+
+function customize_neo() {
+    neofetch
+}
+
+function exit_program() {
+    exit
+}
+
 if [ "$select" == 1 ]
 then
     basic_calculation
@@ -289,5 +322,22 @@ then
     stripoff_extension
 elif [ "$select" == 17 ]
 then
-    
+    delete_dir
+elif [ "$select" == 18 ]
+then
+    create_files_in_dir
+elif [ "$select" == 19 ]
+then
+    generate_ssh
+elif [ "$select" == 20 ]
+then
+    customize_cpu
+elif [ "$select" == 21 ]
+then
+    customize_neo
+elif [ "$select" == 22 ]
+then
+    exit_program
+else
+    echo "Invalid option"
 fi
