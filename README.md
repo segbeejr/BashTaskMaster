@@ -1,4 +1,4 @@
-# BashTaskMaster
+# Bash-Tasks-Manager
 A Bash application that makes possible the execution of multiple tasks, based on a user's selection. When the program is ran, a drop-down menu is displayed that shows the user multiple options of tasks they could perform and based on the user's choice from the options provided, a task is executed if and when the instructions are followed carefully.
 
 ## Key Features
