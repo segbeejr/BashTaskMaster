@@ -4,6 +4,7 @@
 A Bash application that makes possible the execution of multiple tasks, based on a user's selection. When the program is ran, a drop-down menu is displayed that shows the user multiple options of tasks they could perform and based on the choice or the selection of the user; a task is executed.
 
 ## Key Features
+```
 1) Perform calculations
 2) Inspect a file
 3) Display file contents
@@ -11,7 +12,7 @@ A Bash application that makes possible the execution of multiple tasks, based on
 5) Encrypt a file
 6) Decrypt a file
 More...
-
+```
 
 ## Use
 1) Run the TaskManager script in your terminal.
