@@ -66,6 +66,7 @@ More...
   ```
     $ Enter a number: 1
     $ Now the second: 2
+  ```
     
 + When the task is executed, the result is displayed
   ```
